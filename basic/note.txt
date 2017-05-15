@@ -1,0 +1,36 @@
+函数super()需要两个实参，子类名和对象self。为帮助Python将父类和子类关联起来，这些实参必不可少。另外在
+Python2.7中使用继承时，务必在定义父类时在括号内指定object
+
+class Car(object):
+	def __init__(self,make,model,year):
+		--snip--
+
+class ElectricCar(Car):
+	def __init__(self,make,model,year):
+		super(ElectricCar,self).__init__(make,model,year)
+		--snip--
+
+
+重写父类的方法，假设Car类有一个名为fill_gas_tank()的方法，它对全电动汽车来说毫无意义，因此你可能想重写它：
+class ElectricCar(Car):
+	--snip--
+	def fill_gas_tank():
+		print()
+
+将实例作为类的属性：
+class Battery():
+	--snip--
+class ElectricCar(Car):
+	def __init__(self,make,model,year):
+		--snip--
+		self.battery=Battery()
+
+
+Python的类名应该用驼峰命名法，即将类名中的每个单词的首字母都大写,且不适用下划线。实例名和
+模块名都采用小写格式并在单词之间加上下划线。
+对于每个类，都应该紧跟在类定义后面包含一个文档字符串。这种文档字符串简要地
+描述类的功能，并能遵循编写函数的文档字符串时采用的格式约定。每个模块都应该包含一个文档字符串，
+对其中的类可用于做什么进行描述
+
+
+文档字符串就是： """ """
