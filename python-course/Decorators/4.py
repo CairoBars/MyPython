@@ -29,3 +29,4 @@ foo()
 #   Both versions return the same output:
 #   Decorating foo
 #   inside foo()
+

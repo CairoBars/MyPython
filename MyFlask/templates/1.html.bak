@@ -1,0 +1,11 @@
+<!doctype html>
+<title>Hello from Flask</title>
+{% if name %}
+	<h1>Hello {{name}}!</h1>
+{%	else %}
+	<h1>Hello World!</h1>
+{% endif %}
+
+在模板里，你可以访问request、session和g[i]对象，以及get_flashed_message()函数
+
+模板继承能使特定元素（比如页眉、导航栏和页脚）出现在所有的页面
