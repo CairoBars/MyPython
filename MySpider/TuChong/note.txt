@@ -1,0 +1,10 @@
+"""
+	abspath=os.path.abspath(".")
+	savaDirName="1"
+	savePath=abspath+'\\'+savaDirName
+
+	if not os.path.exists(savePath):
+		os.makedirs(savePath,0777)
+
+	urllib.urlretrieve("http://photo.tuchong.com/375410/l/19161629.webp",savePath+'\\'+"19161629.webp")
+"""
