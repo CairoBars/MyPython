@@ -1,0 +1,42 @@
+需知:
+1.在python2默认编码是ASCII, python3里默认是unicode
+2.unicode 分为 utf-32(占4个字节),utf-16(占两个字节)，utf-8(占1-4个字节)， so utf-16就是现在最常用的unicode版本， 不过在文件里存的还是utf-8，因为utf8省空间
+3.在py3中encode,在转码的同时还会把string 变成bytes类型，decode在解码的同时还会把bytes变回string
+
+Py2的字符转码：(需要将编码先转成Unicode再转成其他编码)
+#-*- coding -*-
+import sys
+print(sys.getdefaultencoding())
+
+msg="我是程序员吗"
+msg_gb2312=msg.decode("utf-8").encode("gb2312")
+gb2313_to_gbk=msg_gb2312.decode('gbk').encode('gbk')
+
+
+PY3的转码：
+# -*- coding:gb2312 -*- #这个可以去掉
+import sys
+print(sys.getdefaultencoding()) #输出为
+
+打开文件的模式有：
+
+r，只读模式（默认）。
+w，只写模式。【不可读；不存在则创建；存在则删除内容；】
+a，追加模式。【可读；   不存在则创建；存在则只追加内容；】
+"+" 表示可以同时读写某个文件
+
+r+，可读写文件。【可读；可写；可追加】
+w+，写读
+a+，同a
+"U"表示在读取时，可以将 \r \n \r\n自动转换成 \n （与 r 或 r+ 模式同使用）
+
+rU
+r+U
+"b"表示处理二进制文件（如：FTP发送上传ISO镜像文件，linux可忽略，windows处理二进制文件时需标注）
+
+rb
+wb
+ab
+
+
+strip()把空格和换行都去掉

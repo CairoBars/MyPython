@@ -1,0 +1,45 @@
+#基本操作
+f=open('yesterday')
+first_line=f.readline()
+print("first_line:",first_line)
+print("我是分隔符".center(50,'-'))
+data=f.read()#读取剩下的所有内容，文件大时不要用
+print(data)
+data2=f.read()#读取出来空的值，因为上次read()时文件指针在文件末尾
+f.tell()#告诉文件指针在哪里
+f.seek(0)#回到开头
+'''
+文件读写有一种缓存机制，默认是缓存满了写到硬盘里，
+这里手动执行写入硬盘。一般用在需要将数据实时的写入硬盘的情况
+'''
+f.flush()
+f.readlines()
+f.close()
+
+#with语句
+#为了避免打开文件后忘记关闭，可以通过管理上下午，即：
+with open('log','r') as f:
+    pass
+
+with open('log','r') as f,open('logg','r') as f2:
+    pass
+
+
+
+#读取大文件的技巧：
+for line in f:  #这里的文件句柄变成一个迭代器
+    print(line) #每次内存中只保存一行，这样读取几十个G的文件就不怕内存爆满了
+
+
+
+
+
+
+
+
+
+
+#list的一些技巧
+names=['a','b','c','d']
+for index,i in enumerate(names):
+    print(index,i)
