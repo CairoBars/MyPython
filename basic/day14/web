@@ -1,0 +1,47 @@
+import flask
+import sys
+import os
+
+"""
+print("OOO",sys.prefix)
+print(os.getcwd())
+print(sys.modules)
+premoduels=sys.modules
+app=flask.Flask(__name__)
+print(os.path.split(os.getcwd()))
+
+nowmodules=sys.modules
+
+print(nowmodules==premoduels)
+"""
+
+'''
+for key in nowmodules:
+    if key not in premoduels.keys():
+        print("G")
+        print("gg",key,nowmodules[key])
+
+
+if '__main__' in sys.modules:
+    print("RRRR")
+    print('__main__:',sys.modules['__main__'])
+    module=sys.modules['__main__']
+    loader=getattr(module,"__loader__",None)
+    print(loader)
+'''
+
+
+app=flask.Flask(__name__)
+app.route("/")
+def hello():
+    return "Hello World"
+
+
+
+
+
+
+
+
+if  __name__=="__main__":
+    app.run()
